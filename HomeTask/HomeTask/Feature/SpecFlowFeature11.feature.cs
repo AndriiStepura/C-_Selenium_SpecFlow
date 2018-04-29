@@ -125,6 +125,52 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("As User navigate to news category and check")]
+        public virtual void AsUserNavigateToNewsCategoryAndCheck()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to news category and check", ((string[])(null)));
+#line 25
+this.ScenarioSetup(scenarioInfo);
+#line 26
+ testRunner.Given("User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016" +
+                    "-london page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
+ testRunner.When("Click in breadcrumps block on the link with text News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/more/news-events/ne" +
+                    "ws with title News | Omada Identity Suite", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
+ testRunner.And("I expect to be at page with header type h1 contains string Gartner IAM Summit 201" +
+                    "6 - London at least 1 times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("As User with maximize browser window size navigate to news category and check")]
+        public virtual void AsUserWithMaximizeBrowserWindowSizeNavigateToNewsCategoryAndCheck()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User with maximize browser window size navigate to news category and check", ((string[])(null)));
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
+ testRunner.Given("User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016" +
+                    "-london page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.And("User maximized browser window size to maximize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.When("Click in breadcrumps block on the link with text News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+ testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/more/news-events/ne" +
+                    "ws with title News | Omada Identity Suite", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 36
+ testRunner.And("I expect to be at page with header type h1 contains string Gartner IAM Summit 201" +
+                    "6 - London at least 1 times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

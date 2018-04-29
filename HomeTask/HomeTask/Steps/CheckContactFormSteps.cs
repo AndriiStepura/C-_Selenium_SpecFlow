@@ -19,6 +19,13 @@ namespace HomeTask.Steps
             driver = (IWebDriver) ScenarioContext.Current["driver"];
         }
 
+        [Given(@"User maximized browser window size to maximize")]
+        public void GivenUserMaximizedBrowserWindowSize()
+        {
+            driver.Manage().Window.Maximize();
+        }
+
+
         [Given(@"Not logged in user")]
         public void GivenNotLoggedInUser()
         {
@@ -48,13 +55,24 @@ namespace HomeTask.Steps
         }
 
         [When(@"Click on the link with text (.*)")]
-        public void ThenClickOnTheLinkWithTextGartner(string texTlinKForClick)
+        public void ThenClickOnTheLinkWithText(string texTlinKForClick)
         {
             var link = driver.FindElements(By.XPath($"//a[contains(text(), '{texTlinKForClick}')]"));
             Assert.That(link.Count, Is.EqualTo(1), "With entered text is not one link - " + link.Count + " when expected one");
             link[0].Click();
         }
 
+        [When(@"Click in (.*) block on the link with text (.*)")]
+        public void ThenClickOnSetBlockLinkWithText(string blockType, string texTlinKForClick)
+        {
+            var pathToLink = "";
+            if (blockType == "breadcrumps") {pathToLink = "//main//";}
+            
+            var link = driver.FindElements(By.XPath($"{pathToLink}a[text()='{texTlinKForClick}']"));
+            Assert.That(link.Count, Is.EqualTo(1), "With entered text is not one link - " + link.Count + " when expected one");
+            link[0].Click();
+        }
+        
         [When(@"I enter (.*) page")]
         public void WhenIEnterHomePage(string providedUrl)
         {

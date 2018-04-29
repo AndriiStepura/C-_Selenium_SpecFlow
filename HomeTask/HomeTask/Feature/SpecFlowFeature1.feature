@@ -21,3 +21,16 @@ Scenario: As User navigate to search results page and check it
 	When Click on the link with text Gartner IAM Summit 2016 - London
 	Then I expect to be at page with gartner-iam-summit-2016-london part in url
 	And I expect to be at page with header type h1 contains string Gartner IAM Summit 2016 - London at least 1 times
+
+Scenario: As User navigate to news category and check 
+	Given User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016-london page 
+	When Click in breadcrumps block on the link with text News
+	Then I expect to be redirected to page https://www.omada.net/en-us/more/news-events/news with title News | Omada Identity Suite
+	And I expect to be at page with header type h1 contains string Gartner IAM Summit 2016 - London at least 1 times
+
+Scenario: As User with maximize browser window size navigate to news category and check
+	Given User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016-london page
+	And User maximized browser window size to maximize
+	When Click in breadcrumps block on the link with text News
+	Then I expect to be redirected to page https://www.omada.net/en-us/more/news-events/news with title News | Omada Identity Suite
+	And I expect to be at page with header type h1 contains string Gartner IAM Summit 2016 - London at least 1 times
