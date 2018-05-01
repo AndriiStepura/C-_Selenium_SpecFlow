@@ -70,6 +70,7 @@
       <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DriverFactory.cs" />
+    <Compile Include="Helpers\ElementPaths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\TestsHooks.cs" />
     <Compile Include="Steps\CheckContactFormSteps.cs" />
