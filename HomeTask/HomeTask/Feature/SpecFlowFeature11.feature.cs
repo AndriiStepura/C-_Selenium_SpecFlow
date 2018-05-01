@@ -66,18 +66,16 @@ namespace HomeTask.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("As User I want verify that main page is available just by https.")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void AsUserIWantVerifyThatMainPageIsAvailableJustByHttps_()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User I want verify that main page is available just by https.", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User I want verify that main page is available just by https.", ((string[])(null)));
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 7
  testRunner.Given("Not logged in user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 8
  testRunner.When("I enter http://omada.net page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 9
  testRunner.Then("I expect to be redirected to page https://www.omada.net/ with title Identity Mana" +
                     "gement | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -128,20 +126,27 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("As User navigate to news category and check")]
-        public virtual void AsUserNavigateToNewsCategoryAndCheck()
+        [NUnit.Framework.TestCaseAttribute("240", "320", null)]
+        [NUnit.Framework.TestCaseAttribute("842", "600", null)]
+        [NUnit.Framework.TestCaseAttribute("843", "600", null)]
+        [NUnit.Framework.TestCaseAttribute("1009", "600", null)]
+        [NUnit.Framework.TestCaseAttribute("1010", "600", null)]
+        public virtual void AsUserNavigateToNewsCategoryAndCheck(string width, string height, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to news category and check", ((string[])(null)));
-#line 25
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to news category and check", exampleTags);
 #line 26
+this.ScenarioSetup(scenarioInfo);
+#line 27
  testRunner.Given("User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016" +
                     "-london page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
- testRunner.When("Click in breadcrumps block on the link with text News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 28
+ testRunner.And(string.Format("User use browser window with {0}px X {1}px size", width, height), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+ testRunner.When("Click in breadcrumps block on the link with text News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
  testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/more/news-events/ne" +
                     "ws with title News | Omada Identity Suite", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 29
+#line 31
  testRunner.And("I expect to be at page with header type h1 contains string Gartner IAM Summit 201" +
                     "6 - London at least 1 times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -149,25 +154,94 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User with maximize browser window size navigate to news category and check")]
-        public virtual void AsUserWithMaximizeBrowserWindowSizeNavigateToNewsCategoryAndCheck()
+        [NUnit.Framework.DescriptionAttribute("As User navigate to homepage by click on logo")]
+        public virtual void AsUserNavigateToHomepageByClickOnLogo()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User with maximize browser window size navigate to news category and check", ((string[])(null)));
-#line 31
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to homepage by click on logo", ((string[])(null)));
+#line 40
 this.ScenarioSetup(scenarioInfo);
-#line 32
+#line 41
  testRunner.Given("User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016" +
                     "-london page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
- testRunner.And("User maximized browser window size to maximize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
- testRunner.When("Click in breadcrumps block on the link with text News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
- testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/more/news-events/ne" +
-                    "ws with title News | Omada Identity Suite", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 36
- testRunner.And("I expect to be at page with header type h1 contains string Gartner IAM Summit 201" +
-                    "6 - London at least 1 times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.When("Click on the element logo at the top", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us with title Identity" +
+                    " Management | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("As User navigate to homepage by click on EN language flag for desktop")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        public virtual void AsUserNavigateToHomepageByClickOnENLanguageFlagForDesktop()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to homepage by click on EN language flag for desktop", new string[] {
+                        "Desktop"});
+#line 46
+this.ScenarioSetup(scenarioInfo);
+#line 47
+ testRunner.Given("User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016" +
+                    "-london page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 48
+ testRunner.When("Click on the element EN language flag for desktop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+ testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with" +
+                    " title Identity Management | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("As User navigate to homepage by click on EN language flag for mobile")]
+        [NUnit.Framework.CategoryAttribute("Mobile")]
+        public virtual void AsUserNavigateToHomepageByClickOnENLanguageFlagForMobile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to homepage by click on EN language flag for mobile", new string[] {
+                        "Mobile"});
+#line 52
+this.ScenarioSetup(scenarioInfo);
+#line 53
+ testRunner.Given("User at https://www.omada.net/en-us/more/news-events/news/gartner-iam-summit-2016" +
+                    "-london page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 54
+ testRunner.And("User use mobile browser window size", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.When("Click on the element mobile menu button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 56
+ testRunner.And("Navigate to the element EN language flag for mobile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.And("Click on the element EN language flag for mobile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with" +
+                    " title Identity Management | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("As User navigate from home page to contact page and click U.S West and check if t" +
+            "here is class change on this element (take a screenshot of that)")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        public virtual void AsUserNavigateFromHomePageToContactPageAndClickU_SWestAndCheckIfThereIsClassChangeOnThisElementTakeAScreenshotOfThat()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate from home page to contact page and click U.S West and check if t" +
+                    "here is class change on this element (take a screenshot of that)", new string[] {
+                        "Desktop"});
+#line 61
+this.ScenarioSetup(scenarioInfo);
+#line 62
+ testRunner.Given("User at home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 63
+ testRunner.And("Click on the element Contacts button at the top desktop menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+ testRunner.And("Taking screenshot of the entire screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+ testRunner.When("Click on the element EN language flag for desktop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 66
+ testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with" +
+                    " title Identity Management | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

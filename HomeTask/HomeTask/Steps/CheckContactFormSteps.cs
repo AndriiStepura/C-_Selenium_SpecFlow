@@ -3,28 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using System.Configuration;
+using System.IO;
+using System.Text;
+using System.Drawing;
+
 
 namespace HomeTask.Steps
 {
     using System.Drawing;
     using NUnit.Framework;
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Interactions;
+    using OpenQA.Selenium.Support.UI;
 
     [Binding]
     public sealed class CheckContactFormSteps
     {
+
+
         private IWebDriver driver;
         public CheckContactFormSteps()
         {
             driver = (IWebDriver) ScenarioContext.Current["driver"];
         }
 
-        [Given(@"User maximized browser window size to maximize")]
+        [Given(@"User maximized browser window size")]
         public void GivenUserMaximizedBrowserWindowSize()
         {
             driver.Manage().Window.Maximize();
         }
 
+        [Given(@"User use mobile browser window size")]
+        public void GivenUserUseMobileBrowserWindowSize()
+        {
+            driver.Manage().Window.Size = new Size(240, 320);
+        }
+
+        [Given(@"User use browser window with (.*)px X (.*)px size")]
+        public void GivenUserUseBrowserWindowSize(int w, int h)
+        {
+            driver.Manage().Window.Size = new Size(w, h);
+        }
 
         [Given(@"Not logged in user")]
         public void GivenNotLoggedInUser()
@@ -42,8 +62,23 @@ namespace HomeTask.Steps
             }
             else driver.Navigate().GoToUrl(providedUrl);
             Assert.True(driver.Url == providedUrl, "Driver url is " + driver.Url + " when expected is " + providedUrl);
+
+            
+
+            if (ConfigurationSettings.AppSettings["ClosedAllCookies"] == "true")
+            { 
+                if (driver.FindElement(By.XPath(Helpers.ElementPaths.GetElementPath("close cookies button"))).Displayed)
+                {
+                    driver.FindElement(By.XPath(Helpers.ElementPaths.GetElementPath("close cookies button"))).Click();
+                }
+            }
         }
 
+        [Given(@"Taking screenshot of the entire screen")]
+        public void GivenMakeScreenshot()
+        {
+            
+        }
 
 
         [When(@"I search for (.*)")]
@@ -81,8 +116,37 @@ namespace HomeTask.Steps
             else driver.Navigate().GoToUrl(providedUrl);
         }
 
+        [Given(@"Click on the element (.*)")]
+        public void GivenNawigateToTheElement(string elementName)
+        {
+            WhenNawigateToTheElement(elementName);
+        }
 
+        [When(@"Click on the element (.*)")]
+        public void WhenNawigateToTheElement(string elementName)
+        {
+            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName); ;
+            var element = driver.FindElement(By.XPath($"{pathToElement}"));
 
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
+            wait.Until(driver => element.Displayed);
+
+            element.Click();
+        }
+
+        [When(@"Navigate to the element (.*)")]
+        public void WhenMoveAndClickOnTheElement(string elementName)
+        {
+            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName); ;
+            var element = driver.FindElement(By.XPath($"{pathToElement}"));
+            Actions action = new Actions(driver);
+
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
+            wait.Until(driver => element.Displayed);
+
+            action.MoveToElement(element).Perform();
+        }
+        
         [Then(@"I expect to see more than (.*) search results")]
         public void ThenIExpectToSeeMoreThanResult(int expectedSearchResultsCounter)
         {
@@ -121,7 +185,7 @@ namespace HomeTask.Steps
         [Then(@"I expect that (.*) is displayed")]
         public void ThenIExpectThatElementIsDisplayed(string expectedElement)
         {
-            var visible = driver.FindElements(By.Id("gbqfba"));
+            var element = driver.FindElements(By.Id("gbqfba"));
             
         }
 
