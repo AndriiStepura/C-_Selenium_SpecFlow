@@ -10,6 +10,8 @@ namespace HomeTask.Helpers
     {
         public static string GetElementPath(string elementName)
         {
+            //ToDo refactor to Page Object Pattern
+           
             if (elementName == "logo at the top") { elementName = "//a[@class='header__home']/img"; }
 
             if (elementName == "mobile menu button") { elementName = "//nav//a[text()='MENU']"; }
@@ -19,6 +21,8 @@ namespace HomeTask.Helpers
             if (elementName == "close cookies button") { elementName = "//div[@id='brick-43']//span"; }
             if (elementName == "EN language flag for desktop") { elementName = "//a[@class='header__menulink--function-nav' and text()='EN']"; }
             if (elementName == "Contacts button at the top desktop menu") { elementName = "//div[@class='header__function-nav']//a[text()='Contact']"; }
+            if (elementName == "Privacy Policy at the bottom") { elementName = "//a[text()='Privacy Policy']"; }
+
             
             return elementName;
         }

@@ -116,6 +116,12 @@ namespace HomeTask.Steps
             WhenNavigateAndClickOnSetByBlockTypeElementWithText(blockType, textLinkForClick);
         }
 
+        [When(@"Open (.*) in new tab")]
+        public void WhenOpenElementNameInNewTab(string elementName)
+        {
+            // ToDo for Scenario 11
+        }
+
         [Given(@"Click in (.*) block on the (.*)")]
         public void GivenClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
         {

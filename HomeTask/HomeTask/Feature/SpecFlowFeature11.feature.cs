@@ -221,29 +221,99 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("8. As User navigate from home page to contact page and click U.S West and check i" +
-            "f there is class change on this element (take a screenshot of that)")]
+        [NUnit.Framework.DescriptionAttribute("8. As desktop User navigate from home page to contact page and click tab and chec" +
+            "k if there is class change on this element (take a screenshot of that)")]
         [NUnit.Framework.CategoryAttribute("Desktop")]
-        public virtual void _8_AsUserNavigateFromHomePageToContactPageAndClickU_SWestAndCheckIfThereIsClassChangeOnThisElementTakeAScreenshotOfThat()
+        [NUnit.Framework.TestCaseAttribute("U.S. West", null)]
+        public virtual void _8_AsDesktopUserNavigateFromHomePageToContactPageAndClickTabAndCheckIfThereIsClassChangeOnThisElementTakeAScreenshotOfThat(string contactRegionButton, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8. As User navigate from home page to contact page and click U.S West and check i" +
-                    "f there is class change on this element (take a screenshot of that)", new string[] {
-                        "Desktop"});
-#line 61
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "Desktop"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8. As desktop User navigate from home page to contact page and click tab and chec" +
+                    "k if there is class change on this element (take a screenshot of that)", @__tags);
 #line 62
- testRunner.Given("User at home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 63
- testRunner.And("Click on the element Contacts button at the top desktop menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("User at home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 64
- testRunner.And("Taking screenshot of the entire screen saved with name s8-g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Click on the element Contacts button at the top desktop menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 65
- testRunner.When("Click in contacts for desktop block on the U.S. East", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Click in contacts for desktop block on the {0}", contactRegionButton), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 66
- testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with" +
-                    " title Identity Management | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 67
- testRunner.And("Taking screenshot of the entire screen saved with name s8-g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then(string.Format("Taking screenshot of the entire screen saved with name s8-{0}", contactRegionButton), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("9. As mobile User navigate from home to contact page and click tab and check if t" +
+            "here is class change on this element (take a screenshot of that)")]
+        [NUnit.Framework.CategoryAttribute("Mobile")]
+        [NUnit.Framework.TestCaseAttribute("U.S. West", "240", "320", null)]
+        [NUnit.Framework.TestCaseAttribute("U.S. East", "799", "600", null)]
+        public virtual void _9_AsMobileUserNavigateFromHomeToContactPageAndClickTabAndCheckIfThereIsClassChangeOnThisElementTakeAScreenshotOfThat(string contactRegionButton, string width, string height, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Mobile"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("9. As mobile User navigate from home to contact page and click tab and check if t" +
+                    "here is class change on this element (take a screenshot of that)", @__tags);
+#line 72
+this.ScenarioSetup(scenarioInfo);
+#line 73
+ testRunner.Given("User at home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 74
+ testRunner.And(string.Format("User use browser window with {0}px X {1}px size", width, height), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 75
+ testRunner.And("Click on the element mobile menu button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 76
+ testRunner.And("Navigate to and click on the element contacts button in mobile menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+ testRunner.When(string.Format("Navigate to and click in contacts for mobile block on the {0}", contactRegionButton), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 78
+ testRunner.Then(string.Format("Taking screenshot of the entire screen saved with name s9-{0}-{1}px_{2}px", contactRegionButton, width, height), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("10. As desktop User on contact page do a mouse hover on different location (take " +
+            "a screenshot before and after performing the action)")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        [NUnit.Framework.TestCaseAttribute("U.S. West", "Denmark", null)]
+        [NUnit.Framework.TestCaseAttribute("U.S. West", "U.S. East", null)]
+        [NUnit.Framework.TestCaseAttribute("Denmark", "U.S. West", null)]
+        [NUnit.Framework.TestCaseAttribute("U.S. West", "Germany", null)]
+        [NUnit.Framework.TestCaseAttribute("U.S. West", "UK", null)]
+        public virtual void _10_AsDesktopUserOnContactPageDoAMouseHoverOnDifferentLocationTakeAScreenshotBeforeAndAfterPerformingTheAction(string contactRegionButtonStart, string contactRegionButtonSwitchTo, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Desktop"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10. As desktop User on contact page do a mouse hover on different location (take " +
+                    "a screenshot before and after performing the action)", @__tags);
+#line 85
+this.ScenarioSetup(scenarioInfo);
+#line 86
+ testRunner.Given("User at contact page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 87
+ testRunner.And(string.Format("Click in contacts for desktop block on the {0}", contactRegionButtonStart), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 88
+ testRunner.And(string.Format("Taking screenshot of the entire screen saved with name s10-{0}-to-{1}-before", contactRegionButtonStart, contactRegionButtonSwitchTo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+ testRunner.When(string.Format("Click in contacts for desktop block on the {0}", contactRegionButtonSwitchTo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 90
+ testRunner.Then(string.Format("Taking screenshot of the entire screen saved with name s10-{0}-to-{1}-after", contactRegionButtonStart, contactRegionButtonSwitchTo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

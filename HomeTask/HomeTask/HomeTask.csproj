@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Feature\SpecFlowFeature1.feature.cs">
+    <Compile Include="Feature\SpecFlowFeature11.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
@@ -80,7 +80,7 @@
     <None Include="App.config" />
     <None Include="Feature\SpecFlowFeature1.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+      <LastGenOutput>SpecFlowFeature11.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
