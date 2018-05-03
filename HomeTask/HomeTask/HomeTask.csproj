@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Helpers\TakeScreenshot.cs" />
     <Compile Include="Data\Positive.cs" />
     <Compile Include="Feature\SpecFlowFeature11.feature.cs">
       <AutoGen>True</AutoGen>
