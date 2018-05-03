@@ -62,13 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\TakeScreenshot.cs" />
-    <Compile Include="Data\Positive.cs" />
-    <Compile Include="Feature\SpecFlowFeature11.feature.cs">
+    <Compile Include="Feature\SpecFlowFeature1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TakeScreenshot.cs" />
+    <Compile Include="Data\Positive.cs" />
     <Compile Include="Helpers\DriverFactory.cs" />
     <Compile Include="Helpers\ElementPaths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,7 +80,7 @@
     <None Include="App.config" />
     <None Include="Feature\SpecFlowFeature1.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature11.feature.cs</LastGenOutput>
+      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

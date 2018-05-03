@@ -57,13 +57,41 @@ Scenario: 7. As User navigate to homepage by click on EN language flag for mobil
 	And Click on the element EN language flag for mobile
 	Then I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with title Identity Management | Omada Identity
 
+	
 @Desktop
-Scenario: 8. As User navigate from home page to contact page and click U.S West and check if there is class change on this element (take a screenshot of that)
+Scenario Outline: 8. As desktop User navigate from home page to contact page and click tab and check if there is class change on this element (take a screenshot of that)
 	Given User at home page
 	And Click on the element Contacts button at the top desktop menu
-	And Taking screenshot of the entire screen saved with name s8-g1
-	When Click in contacts for desktop block on the U.S. East
-	Then I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with title Identity Management | Omada Identity
-	And Taking screenshot of the entire screen saved with name s8-g1
+	When Click in contacts for desktop block on the <ContactRegionButton>
+	Then Taking screenshot of the entire screen saved with name s8-<ContactRegionButton>
+Examples:
+| ContactRegionButton |
+| U.S. West   |
 
+@Mobile
+Scenario Outline: 9. As mobile User navigate from home to contact page and click tab and check if there is class change on this element (take a screenshot of that)
+	Given User at home page
+	And User use browser window with <width>px X <height>px size
+	And Click on the element mobile menu button
+	And Navigate to and click on the element contacts button in mobile menu
+	When Navigate to and click in contacts for mobile block on the <ContactRegionButton>
+	Then Taking screenshot of the entire screen saved with name s9-<ContactRegionButton>-<width>px_<height>px
+Examples:
+| ContactRegionButton | width | height |
+| U.S. West   | 240   | 320    |
+| U.S. East   | 799   | 600    |
 
+@Desktop
+Scenario Outline: 10. As desktop User on contact page do a mouse hover on different location (take a screenshot before and after performing the action)
+	Given User at contact page
+	And Click in contacts for desktop block on the <ContactRegionButtonStart>
+	And Taking screenshot of the entire screen saved with name s10-<ContactRegionButtonStart>-to-<ContactRegionButtonSwitchTo>-before
+	When Click in contacts for desktop block on the <ContactRegionButtonSwitchTo>
+	Then Taking screenshot of the entire screen saved with name s10-<ContactRegionButtonStart>-to-<ContactRegionButtonSwitchTo>-after
+Examples:
+| ContactRegionButtonStart | ContactRegionButtonSwitchTo |
+| U.S. West                | Denmark                     |
+| U.S. West                | U.S. East                   |
+| Denmark				   | U.S. West                   |
+| U.S. West                | Germany                     |
+| U.S. West                | UK                          |
