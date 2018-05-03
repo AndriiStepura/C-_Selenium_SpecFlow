@@ -17,10 +17,20 @@ namespace HomeTask
             ITakesScreenshot ssdriver = driver as ITakesScreenshot;
             Screenshot screenshot = ssdriver.GetScreenshot();
 
-            // Decide path to save files
-            // Create separated folder for save each hour screenshots
-            string timeFolder = DateTime.Now.ToString("yyyy-MM-dd-HH");
-            string path = ConfigurationSettings.AppSettings["ScreenshootsFolder"]+ @"\" +timeFolder + @"\";
+            // Decide path to save files            
+            string path;
+            if (ConfigurationSettings.AppSettings["useTimestampAsScreenshotsFolder"] == "true")
+            {
+                // If your testRun# not changed you may use timeStamp folder belove
+                string timeFolder = DateTime.Now.ToString("yyyy-MM-dd-HH");// Create separated folder for save each hour screenshots
+                path = ConfigurationSettings.AppSettings["ScreenshootsFolder"] + @"\" + timeFolder + @"\";
+            }
+            else
+            {
+                path = ConfigurationSettings.AppSettings["ScreenshootsFolder"] + @"\" + ConfigurationSettings.AppSettings["testRun#"] + @"\";
+            }
+            
+
                 bool exists = System.IO.Directory.Exists(path);
                 if (!exists) System.IO.Directory.CreateDirectory(path);
 

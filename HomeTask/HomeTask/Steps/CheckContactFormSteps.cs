@@ -46,12 +46,10 @@ namespace HomeTask.Steps
         [Given(@"User at (.*) page")]
         public void GivenIMAtHomePage(string providedUrl)
         {
-            if (providedUrl == "home")
-            {
-                providedUrl = Data.Positive.homePageWithS;
-                driver.Navigate().GoToUrl(providedUrl);
-            }
-            else driver.Navigate().GoToUrl(providedUrl);
+            if (providedUrl == "home"){providedUrl = Data.Positive.homePageWithS;}
+            if (providedUrl == "contact") {providedUrl = Data.Positive.contactPageUs; }
+
+            driver.Navigate().GoToUrl(providedUrl);
             Assert.True(driver.Url == providedUrl, "Driver url is " + driver.Url + " when expected is " + providedUrl);
 
             if (ConfigurationSettings.AppSettings["ClosedAllCookies"] == "true")
@@ -91,18 +89,45 @@ namespace HomeTask.Steps
             link[0].Click();
         }
 
-        [When(@"Click in (.*) block on the (.*)")]
-        public void ThenClickOnSetBlockLinkWithText(string blockType, string textLinkForClick)
+        [When(@"Click in (.*) block on the (.*) and (.*)")]
+        public void WhenNavigateAndClickOnSetByBlockTypeElementWithText(string blockType, string textLinkForClick, bool isNavigateToElement = false)
         {
             var pathToLink = "";
-            if (blockType == "breadcrumps") {pathToLink = "//main//";}
-            if (blockType == "contacts for desktop") {pathToLink = "//div[@class='tabmenu__menu']/"; }
-            
+            if (blockType == "breadcrumps") { pathToLink = "//main//"; }
+            if (blockType == "contacts for desktop") { pathToLink = "//div[@class='tabmenu__menu']/"; }
+            if (blockType == "contacts for mobile") { pathToLink = "//div[@class='tabmenu__tabs']//"; }
+
             var link = driver.FindElements(By.XPath($"{pathToLink}*[text()='{textLinkForClick}']"));
             Assert.That(link.Count, Is.EqualTo(1), "With entered block " + pathToLink + " and text " + textLinkForClick + " is more than just one link - " + link.Count);
+            if (isNavigateToElement)
+            {
+                Actions action = new Actions(driver);
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3)); //ToDo refactor waits
+                wait.Until(driver => link[0].Displayed);
+                action.MoveToElement(link[0]).Perform();
+            }
             link[0].Click();
         }
-        
+
+        // ToDo refactor redundatn menthods for same Fiven and When implementation 
+        [When(@"Click in (.*) block on the (.*)")]
+        public void WhenClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
+        {
+            WhenNavigateAndClickOnSetByBlockTypeElementWithText(blockType, textLinkForClick);
+        }
+
+        [Given(@"Click in (.*) block on the (.*)")]
+        public void GivenClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
+        {
+            WhenNavigateAndClickOnSetByBlockTypeElementWithText(blockType, textLinkForClick);
+        }
+
+        [When(@"Navigate to and click in (.*) block on the (.*)")]
+        public void WhenNavigateToAndClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
+        {
+            WhenNavigateAndClickOnSetByBlockTypeElementWithText(blockType, textLinkForClick, true);
+        }
+
         [When(@"I enter (.*) page")]
         public void WhenIEnterHomePage(string providedUrl = null)
         {
@@ -111,13 +136,13 @@ namespace HomeTask.Steps
         }
 
         [Given(@"Click on the element (.*)")]
-        public void GivenNawigateToTheElement(string elementName)
+        public void GivenClickOnTheElement(string elementName)
         {
-            WhenNawigateToTheElement(elementName);
+            WhenClickOnTheElement(elementName);
         }
 
         [When(@"Click on the element (.*)")]
-        public void WhenNawigateToTheElement(string elementName)
+        public void WhenClickOnTheElement(string elementName)
         {
             var pathToElement = Helpers.ElementPaths.GetElementPath(elementName); ;
             var element = driver.FindElement(By.XPath($"{pathToElement}"));
@@ -129,7 +154,7 @@ namespace HomeTask.Steps
         }
 
         [When(@"Navigate to the element (.*)")]
-        public void WhenMoveAndClickOnTheElement(string elementName)
+        public void WhenMoveToTheElement(string elementName)
         {
             var pathToElement = Helpers.ElementPaths.GetElementPath(elementName); ;
             var element = driver.FindElement(By.XPath($"{pathToElement}"));
@@ -140,7 +165,14 @@ namespace HomeTask.Steps
 
             action.MoveToElement(element).Perform();
         }
-        
+
+        [Given(@"Navigate to and click on the element (.*)")]
+        public void GivenMoveToAndClickOnTheElement(string elementName)
+        {
+            WhenMoveToTheElement(elementName);
+            WhenClickOnTheElement(elementName);
+        }
+
         [Then(@"I expect to see more than (.*) search results")]
         public void ThenIExpectToSeeMoreThanResult(int expectedSearchResultsCounter)
         {
