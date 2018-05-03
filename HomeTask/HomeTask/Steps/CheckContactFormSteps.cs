@@ -5,7 +5,6 @@ using System.Text;
 using TechTalk.SpecFlow;
 using System.Configuration;
 using System.IO;
-using System.Text;
 using System.Drawing;
 
 
@@ -54,7 +53,6 @@ namespace HomeTask.Steps
         [Given(@"User at (.*) page")]
         public void GivenIMAtHomePage(string providedUrl)
         {
-            string url = null;
             if (providedUrl == "home")
             {
                 providedUrl = Data.Positive.homePageWithS;
@@ -62,8 +60,6 @@ namespace HomeTask.Steps
             }
             else driver.Navigate().GoToUrl(providedUrl);
             Assert.True(driver.Url == providedUrl, "Driver url is " + driver.Url + " when expected is " + providedUrl);
-
-            
 
             if (ConfigurationSettings.AppSettings["ClosedAllCookies"] == "true")
             { 
@@ -74,12 +70,17 @@ namespace HomeTask.Steps
             }
         }
 
-        [Given(@"Taking screenshot of the entire screen")]
-        public void GivenMakeScreenshot()
+        [Given(@"Taking screenshot of the entire screen saved with name (.*)")]
+        public void GivenMakeScreenshot(string fileName)
         {
-            
+            TakeScreenshot.Main(driver, fileName);
         }
 
+        [Then(@"Taking screenshot of the entire screen saved with name (.*)")]
+        public void ThenMakeScreenshot(string fileName)
+        {
+            TakeScreenshot.Main(driver, fileName);
+        }
 
         [When(@"I search for (.*)")]
         public void GivenISearchForGartner(string name)
@@ -97,21 +98,21 @@ namespace HomeTask.Steps
             link[0].Click();
         }
 
-        [When(@"Click in (.*) block on the link with text (.*)")]
-        public void ThenClickOnSetBlockLinkWithText(string blockType, string texTlinKForClick)
+        [When(@"Click in (.*) block on the (.*)")]
+        public void ThenClickOnSetBlockLinkWithText(string blockType, string textLinkForClick)
         {
             var pathToLink = "";
             if (blockType == "breadcrumps") {pathToLink = "//main//";}
+            if (blockType == "contacts for desktop") {pathToLink = "//div[@class='tabmenu__menu']/"; }
             
-            var link = driver.FindElements(By.XPath($"{pathToLink}a[text()='{texTlinKForClick}']"));
-            Assert.That(link.Count, Is.EqualTo(1), "With entered text is not one link - " + link.Count + " when expected one");
+            var link = driver.FindElements(By.XPath($"{pathToLink}*[text()='{textLinkForClick}']"));
+            Assert.That(link.Count, Is.EqualTo(1), "With entered block " + pathToLink + " and text " + textLinkForClick + " is more than just one link - " + link.Count);
             link[0].Click();
         }
         
         [When(@"I enter (.*) page")]
-        public void WhenIEnterHomePage(string providedUrl)
+        public void WhenIEnterHomePage(string providedUrl = null)
         {
-            string url = null;
             if (providedUrl == "home") driver.Navigate().GoToUrl(Data.Positive.homePage);
             else driver.Navigate().GoToUrl(providedUrl);
         }

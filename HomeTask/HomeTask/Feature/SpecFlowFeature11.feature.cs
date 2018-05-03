@@ -65,10 +65,10 @@ namespace HomeTask.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User I want verify that main page is available just by https.")]
-        public virtual void AsUserIWantVerifyThatMainPageIsAvailableJustByHttps_()
+        [NUnit.Framework.DescriptionAttribute("1. As User I want verify that main page is available just by https.")]
+        public virtual void _1_AsUserIWantVerifyThatMainPageIsAvailableJustByHttps_()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User I want verify that main page is available just by https.", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. As User I want verify that main page is available just by https.", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -83,10 +83,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User I search gartner from home page and check search results")]
-        public virtual void AsUserISearchGartnerFromHomePageAndCheckSearchResults()
+        [NUnit.Framework.DescriptionAttribute("2. As User I search gartner from home page and check search results")]
+        public virtual void _2_AsUserISearchGartnerFromHomePageAndCheckSearchResults()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User I search gartner from home page and check search results", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. As User I search gartner from home page and check search results", ((string[])(null)));
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line 13
@@ -105,10 +105,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User navigate to search results page and check it")]
-        public virtual void AsUserNavigateToSearchResultsPageAndCheckIt()
+        [NUnit.Framework.DescriptionAttribute("3. As User navigate to search results page and check it")]
+        public virtual void _3_AsUserNavigateToSearchResultsPageAndCheckIt()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to search results page and check it", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3. As User navigate to search results page and check it", ((string[])(null)));
 #line 19
 this.ScenarioSetup(scenarioInfo);
 #line 20
@@ -125,15 +125,15 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User navigate to news category and check")]
+        [NUnit.Framework.DescriptionAttribute("4. As User navigate to news category and check")]
         [NUnit.Framework.TestCaseAttribute("240", "320", null)]
         [NUnit.Framework.TestCaseAttribute("842", "600", null)]
         [NUnit.Framework.TestCaseAttribute("843", "600", null)]
         [NUnit.Framework.TestCaseAttribute("1009", "600", null)]
         [NUnit.Framework.TestCaseAttribute("1010", "600", null)]
-        public virtual void AsUserNavigateToNewsCategoryAndCheck(string width, string height, string[] exampleTags)
+        public virtual void _4_AsUserNavigateToNewsCategoryAndCheck(string width, string height, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to news category and check", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. As User navigate to news category and check", exampleTags);
 #line 26
 this.ScenarioSetup(scenarioInfo);
 #line 27
@@ -142,7 +142,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
  testRunner.And(string.Format("User use browser window with {0}px X {1}px size", width, height), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
- testRunner.When("Click in breadcrumps block on the link with text News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Click in breadcrumps block on the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
  testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/more/news-events/ne" +
                     "ws with title News | Omada Identity Suite", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -154,10 +154,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User navigate to homepage by click on logo")]
-        public virtual void AsUserNavigateToHomepageByClickOnLogo()
+        [NUnit.Framework.DescriptionAttribute("5. As User navigate to homepage by click on logo")]
+        public virtual void _5_AsUserNavigateToHomepageByClickOnLogo()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to homepage by click on logo", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5. As User navigate to homepage by click on logo", ((string[])(null)));
 #line 40
 this.ScenarioSetup(scenarioInfo);
 #line 41
@@ -173,11 +173,11 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User navigate to homepage by click on EN language flag for desktop")]
+        [NUnit.Framework.DescriptionAttribute("6. As User navigate to homepage by click on EN language flag for desktop")]
         [NUnit.Framework.CategoryAttribute("Desktop")]
-        public virtual void AsUserNavigateToHomepageByClickOnENLanguageFlagForDesktop()
+        public virtual void _6_AsUserNavigateToHomepageByClickOnENLanguageFlagForDesktop()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to homepage by click on EN language flag for desktop", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6. As User navigate to homepage by click on EN language flag for desktop", new string[] {
                         "Desktop"});
 #line 46
 this.ScenarioSetup(scenarioInfo);
@@ -194,11 +194,11 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User navigate to homepage by click on EN language flag for mobile")]
+        [NUnit.Framework.DescriptionAttribute("7. As User navigate to homepage by click on EN language flag for mobile")]
         [NUnit.Framework.CategoryAttribute("Mobile")]
-        public virtual void AsUserNavigateToHomepageByClickOnENLanguageFlagForMobile()
+        public virtual void _7_AsUserNavigateToHomepageByClickOnENLanguageFlagForMobile()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate to homepage by click on EN language flag for mobile", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7. As User navigate to homepage by click on EN language flag for mobile", new string[] {
                         "Mobile"});
 #line 52
 this.ScenarioSetup(scenarioInfo);
@@ -221,13 +221,13 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("As User navigate from home page to contact page and click U.S West and check if t" +
-            "here is class change on this element (take a screenshot of that)")]
+        [NUnit.Framework.DescriptionAttribute("8. As User navigate from home page to contact page and click U.S West and check i" +
+            "f there is class change on this element (take a screenshot of that)")]
         [NUnit.Framework.CategoryAttribute("Desktop")]
-        public virtual void AsUserNavigateFromHomePageToContactPageAndClickU_SWestAndCheckIfThereIsClassChangeOnThisElementTakeAScreenshotOfThat()
+        public virtual void _8_AsUserNavigateFromHomePageToContactPageAndClickU_SWestAndCheckIfThereIsClassChangeOnThisElementTakeAScreenshotOfThat()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("As User navigate from home page to contact page and click U.S West and check if t" +
-                    "here is class change on this element (take a screenshot of that)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8. As User navigate from home page to contact page and click U.S West and check i" +
+                    "f there is class change on this element (take a screenshot of that)", new string[] {
                         "Desktop"});
 #line 61
 this.ScenarioSetup(scenarioInfo);
@@ -236,12 +236,14 @@ this.ScenarioSetup(scenarioInfo);
 #line 63
  testRunner.And("Click on the element Contacts button at the top desktop menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
- testRunner.And("Taking screenshot of the entire screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Taking screenshot of the entire screen saved with name s8-g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 65
- testRunner.When("Click on the element EN language flag for desktop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Click in contacts for desktop block on the U.S. East", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 66
  testRunner.Then("I expect to be redirected to page https://www.omada.net/en-us/omada-homepage with" +
                     " title Identity Management | Omada Identity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 67
+ testRunner.And("Taking screenshot of the entire screen saved with name s8-g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
