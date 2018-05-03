@@ -8,8 +8,8 @@ namespace HomeTask.Settings
     public sealed class TestsHooks
     {
         private IWebDriver driver;
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
 
+        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
         [BeforeScenario]
         public void BeforeScenario()
         {

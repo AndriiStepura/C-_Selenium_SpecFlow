@@ -16,6 +16,7 @@ namespace HomeTask.Helpers
             if (elementName == "EN language flag for mobile") { elementName = "//nav//a[text()='EN']"; }
             if (elementName == "close cookies button") { elementName = "//div[@id='brick-43']//span"; }
             if (elementName == "Contacts button at the top desktop menu") { elementName = "//div[@class='header__function-nav']//a[text()='Contact']"; }
+            
             return elementName;
         }
     }

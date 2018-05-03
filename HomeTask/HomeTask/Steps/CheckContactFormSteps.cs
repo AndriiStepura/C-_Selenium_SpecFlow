@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 using System.Configuration;
-using System.IO;
 using System.Drawing;
-
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 
 namespace HomeTask.Steps
 {
-    using System.Drawing;
-    using NUnit.Framework;
-    using OpenQA.Selenium;
-    using OpenQA.Selenium.Interactions;
-    using OpenQA.Selenium.Support.UI;
-
     [Binding]
     public sealed class CheckContactFormSteps
     {
