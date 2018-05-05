@@ -317,6 +317,31 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("11. Open Read Privacy Policy in another tab. Check if it is opened and loaded pro" +
+            "perly")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        public virtual void _11_OpenReadPrivacyPolicyInAnotherTab_CheckIfItIsOpenedAndLoadedProperly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11. Open Read Privacy Policy in another tab. Check if it is opened and loaded pro" +
+                    "perly", new string[] {
+                        "Desktop"});
+#line 100
+this.ScenarioSetup(scenarioInfo);
+#line 101
+ testRunner.Given("User at contact page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 102
+ testRunner.When("Open Privacy Policy at the bottom in new tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 103
+ testRunner.Then("I expect to be at page with title Omada | Processing of Personal Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 104
+ testRunner.And("I expect to be at page with h1 header WEBSITE PRIVACY POLICY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 105
+ testRunner.And("I expect to be at page with text info@omada.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

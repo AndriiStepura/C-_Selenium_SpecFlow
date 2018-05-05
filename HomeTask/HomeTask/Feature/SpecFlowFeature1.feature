@@ -96,3 +96,10 @@ Examples:
 | U.S. West                | Germany                     |
 | U.S. West                | UK                          |
 
+@Desktop
+Scenario: 11. Open Read Privacy Policy in another tab. Check if it is opened and loaded properly
+	Given User at contact page
+	When Open Privacy Policy at the bottom in new tab
+	Then I expect to be at page with title Omada | Processing of Personal Data
+	And I expect to be at page with h1 header WEBSITE PRIVACY POLICY
+	And I expect to be at page with text info@omada.net

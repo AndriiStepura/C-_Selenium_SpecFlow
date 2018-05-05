@@ -9,6 +9,8 @@ using OpenQA.Selenium.Support.UI;
 
 namespace HomeTask.Steps
 {
+    using System.Linq;
+
     [Binding]
     public sealed class CheckContactFormSteps
     {
@@ -109,7 +111,7 @@ namespace HomeTask.Steps
             link[0].Click();
         }
 
-        // ToDo refactor redundatn menthods for same Fiven and When implementation 
+        // ToDo refactor redundatn menthods for same Given and When implementation 
         [When(@"Click in (.*) block on the (.*)")]
         public void WhenClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
         {
@@ -119,7 +121,9 @@ namespace HomeTask.Steps
         [When(@"Open (.*) in new tab")]
         public void WhenOpenElementNameInNewTab(string elementName)
         {
-            // ToDo for Scenario 11
+            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName);
+            var element = driver.FindElement(By.XPath(pathToElement));
+            Helpers.TabsManipulator.OpenNewTabAndOpenUrl(driver, element);
         }
 
         [Given(@"Click in (.*) block on the (.*)")]
@@ -198,6 +202,26 @@ namespace HomeTask.Steps
         {
             Assert.That(driver.Url, Is.EqualTo(finalUrl), "Driver url is " + driver.Url + " when expected is " + finalUrl);
             Assert.That(driver.Title, Is.EqualTo(pageTitle), "Driver title is " + driver.Title + " when expected is " + pageTitle);
+        }
+
+        [Then(@"I expect to be at page with title (.*)")]
+        public void ThenIExpectToBeAtPageWithTitle(string pageTitle)
+        {
+            Assert.That(driver.Title, Is.EqualTo(pageTitle), "Driver title is " + driver.Title + " when expected is " + pageTitle);
+        }
+        
+        [Then(@"I expect to be at page with text (.*)")]
+        public void ThenIExpectToBeAtPageWithText(string pageTitle)
+        {
+            string bodyText = driver.FindElement(By.TagName("body")).Text;
+            Assert.True(bodyText.Contains(pageTitle), "Page content in body not contains expected " + pageTitle);
+        }
+
+        [Then(@"I expect to be at page with h1 header (.*)")]
+        public void ThenIExpectToBeAtPageWithH1Header(string pageH1Header)
+        {
+            string header1 = driver.FindElement(By.TagName("h1")).Text;
+            Assert.That(header1, Is.EqualTo(pageH1Header), "Driver title is " + driver.Title + " when expected is " + pageH1Header);
         }
 
         [Then(@"I expect to be at page with (.*) part in url")]

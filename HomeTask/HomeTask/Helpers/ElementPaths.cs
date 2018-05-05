@@ -11,7 +11,7 @@ namespace HomeTask.Helpers
         public static string GetElementPath(string elementName)
         {
             //ToDo refactor to Page Object Pattern
-           
+            //ToDo implement import text variables from translation files according to settings as ex En-GB, De-DE...
             if (elementName == "logo at the top") { elementName = "//a[@class='header__home']/img"; }
 
             if (elementName == "mobile menu button") { elementName = "//nav//a[text()='MENU']"; }
@@ -23,7 +23,6 @@ namespace HomeTask.Helpers
             if (elementName == "Contacts button at the top desktop menu") { elementName = "//div[@class='header__function-nav']//a[text()='Contact']"; }
             if (elementName == "Privacy Policy at the bottom") { elementName = "//a[text()='Privacy Policy']"; }
 
-            
             return elementName;
         }
     }
