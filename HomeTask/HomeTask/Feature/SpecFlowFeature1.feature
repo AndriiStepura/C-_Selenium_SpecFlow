@@ -99,7 +99,60 @@ Examples:
 @Desktop
 Scenario: 11. Open Read Privacy Policy in another tab. Check if it is opened and loaded properly
 	Given User at contact page
-	When Open Privacy Policy at the bottom in new tab
+	When Open Privacy Policy at the bottom cookiebar in new tab
 	Then I expect to be at page with title Omada | Processing of Personal Data
 	And I expect to be at page with h1 header WEBSITE PRIVACY POLICY
 	And I expect to be at page with text info@omada.net
+
+@Desktop
+Scenario: 12. Open Privacy Policy in another tab. Check if it is opened and loaded properly
+	Given User at contact page
+	When Open Privacy Policy at the footer in new tab
+	Then I expect to be at page with title Omada | Processing of Personal Data
+	And I expect to be at page with h1 header WEBSITE PRIVACY POLICY
+	And I expect to be at page with text info@omada.net
+
+@Desktop
+Scenario: 13. Open Privacy Policy in another tab. Check if it is opened and loaded properly
+	Given User at contact page
+	And Privacy Policy at the bottom cookiebar opened in new tab
+	And User at the first tab
+	When Click on the element close cookies button
+	And Close second tab
+	And User switch to the first tab
+	And Click on the element logo at the top
+	Then I expect that element close cookies button is not displayed
+
+@Desktop
+Scenario Outline: 14. From the bottom of the Home page choose Cases link. On new open clickDownload PDF button. Fill necessary data to download PDF file.
+	Given User at home page 
+	And Click on the element close cookies button
+	And Navigate to and click on the element Cases button at the footer
+	When Navigate to and click in Omada Customers number number <number> on the Download PDF
+	And Fill cases form field jobtitle with text Test Job Title
+	And Fill cases form field firstname with text Test First Name
+	And Fill cases form field lastname with text Test Last Name
+	And Fill cases form field emailaddress1 with text andriistepura+omada-test14@gmail.com
+	And Fill cases form field telephone1 with text +48 889 417 715
+	And Fill cases form field parentcustomerid with text W2BUSINESS Sp. z O.o
+	And Select cases form selector address1_county option Poland
+	And Check cases form checkbox new_omada_buddymail
+
+Examples:
+| number |
+| 1      |
+| 2      |
+| 3      |
+| 4      |
+| 5      |
+| 6      |
+| 7      |
+| 8      |
+| 9      |
+| 10     |
+| 11     |
+| 12     |
+| 13     |
+| 14     |
+| 15     |
+| 16     |

@@ -332,13 +332,130 @@ this.ScenarioSetup(scenarioInfo);
 #line 101
  testRunner.Given("User at contact page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 102
- testRunner.When("Open Privacy Policy at the bottom in new tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Open Privacy Policy at the bottom cookiebar in new tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 103
  testRunner.Then("I expect to be at page with title Omada | Processing of Personal Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 104
  testRunner.And("I expect to be at page with h1 header WEBSITE PRIVACY POLICY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
  testRunner.And("I expect to be at page with text info@omada.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("12. Open Privacy Policy in another tab. Check if it is opened and loaded properly" +
+            "")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        public virtual void _12_OpenPrivacyPolicyInAnotherTab_CheckIfItIsOpenedAndLoadedProperly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("12. Open Privacy Policy in another tab. Check if it is opened and loaded properly" +
+                    "", new string[] {
+                        "Desktop"});
+#line 108
+this.ScenarioSetup(scenarioInfo);
+#line 109
+ testRunner.Given("User at contact page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 110
+ testRunner.When("Open Privacy Policy at the footer in new tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 111
+ testRunner.Then("I expect to be at page with title Omada | Processing of Personal Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 112
+ testRunner.And("I expect to be at page with h1 header WEBSITE PRIVACY POLICY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+ testRunner.And("I expect to be at page with text info@omada.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("13. Open Privacy Policy in another tab. Check if it is opened and loaded properly" +
+            "")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        public virtual void _13_OpenPrivacyPolicyInAnotherTab_CheckIfItIsOpenedAndLoadedProperly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("13. Open Privacy Policy in another tab. Check if it is opened and loaded properly" +
+                    "", new string[] {
+                        "Desktop"});
+#line 116
+this.ScenarioSetup(scenarioInfo);
+#line 117
+ testRunner.Given("User at contact page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 118
+ testRunner.And("Privacy Policy at the bottom cookiebar opened in new tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 119
+ testRunner.And("User at the first tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 120
+ testRunner.When("Click on the element close cookies button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 121
+ testRunner.And("Close second tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 122
+ testRunner.And("User switch to the first tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 123
+ testRunner.And("Click on the element logo at the top", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 124
+ testRunner.Then("I expect that element close cookies button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("14. From the bottom of the Home page choose Cases link. On new open clickDownload" +
+            " PDF button. Fill necessary data to download PDF file.")]
+        [NUnit.Framework.CategoryAttribute("Desktop")]
+        [NUnit.Framework.TestCaseAttribute("1", null)]
+        [NUnit.Framework.TestCaseAttribute("2", null)]
+        [NUnit.Framework.TestCaseAttribute("3", null)]
+        [NUnit.Framework.TestCaseAttribute("4", null)]
+        [NUnit.Framework.TestCaseAttribute("5", null)]
+        [NUnit.Framework.TestCaseAttribute("6", null)]
+        [NUnit.Framework.TestCaseAttribute("7", null)]
+        [NUnit.Framework.TestCaseAttribute("8", null)]
+        [NUnit.Framework.TestCaseAttribute("9", null)]
+        [NUnit.Framework.TestCaseAttribute("10", null)]
+        [NUnit.Framework.TestCaseAttribute("11", null)]
+        [NUnit.Framework.TestCaseAttribute("12", null)]
+        [NUnit.Framework.TestCaseAttribute("13", null)]
+        [NUnit.Framework.TestCaseAttribute("14", null)]
+        [NUnit.Framework.TestCaseAttribute("15", null)]
+        [NUnit.Framework.TestCaseAttribute("16", null)]
+        public virtual void _14_FromTheBottomOfTheHomePageChooseCasesLink_OnNewOpenClickDownloadPDFButton_FillNecessaryDataToDownloadPDFFile_(string number, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Desktop"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("14. From the bottom of the Home page choose Cases link. On new open clickDownload" +
+                    " PDF button. Fill necessary data to download PDF file.", @__tags);
+#line 127
+this.ScenarioSetup(scenarioInfo);
+#line 128
+ testRunner.Given("User at home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 129
+ testRunner.And("Click on the element close cookies button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+ testRunner.And("Navigate to and click on the element Cases button at the footer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 131
+ testRunner.When(string.Format("Navigate to and click in Omada Customers number number {0} on the Download PDF", number), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 132
+ testRunner.And("Fill cases form field jobtitle with text Test Job Title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 133
+ testRunner.And("Fill cases form field firstname with text Test First Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 134
+ testRunner.And("Fill cases form field lastname with text Test Last Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 135
+ testRunner.And("Fill cases form field emailaddress1 with text andriistepura+omada-test14@gmail.co" +
+                    "m", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+ testRunner.And("Fill cases form field telephone1 with text +48 889 417 715", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+ testRunner.And("Fill cases form field parentcustomerid with text W2BUSINESS Sp. z O.o", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+ testRunner.And("Select cases form selector address1_county option Poland", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 139
+ testRunner.And("Check cases form checkbox new_omada_buddymail", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -14,7 +14,7 @@ namespace HomeTask.Steps
     [Binding]
     public sealed class CheckContactFormSteps
     {
-
+        //ToDo add regions for separate methods
 
         private IWebDriver driver;
         public CheckContactFormSteps()
@@ -118,6 +118,12 @@ namespace HomeTask.Steps
             WhenNavigateAndClickOnSetByBlockTypeElementWithText(blockType, textLinkForClick);
         }
 
+        [Given(@"(.*) opened in new tab")]
+        public void GivenOpenedElementNameInNewTab(string elementName)
+        {
+            WhenOpenElementNameInNewTab(elementName);
+        }
+
         [When(@"Open (.*) in new tab")]
         public void WhenOpenElementNameInNewTab(string elementName)
         {
@@ -125,6 +131,28 @@ namespace HomeTask.Steps
             var element = driver.FindElement(By.XPath(pathToElement));
             Helpers.TabsManipulator.OpenNewTabAndOpenUrl(driver, element);
         }
+
+        //ToDo move numbers to enum
+        [When(@"Close (.*) tab")]
+        public void WhenCloseNumberTab(string number)
+        {
+            int numberInt = 0;
+            if (number == "first") numberInt = 0;
+            if (number == "second") numberInt = 1;
+            if (number == "third") numberInt = 2;
+            driver.SwitchTo().Window(driver.WindowHandles[numberInt]).Close();
+        }
+
+        [Given(@"User at the (.*) tab")]
+        public void GivenUserAtTheTab(string number)
+        {
+            int numberInt=0;
+            if (number == "first") numberInt = 0;
+            if (number == "second") numberInt = 1;
+            if (number == "third") numberInt = 2;
+            driver.SwitchTo().Window(driver.WindowHandles[numberInt]);
+        }
+
 
         [Given(@"Click in (.*) block on the (.*)")]
         public void GivenClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
@@ -136,6 +164,21 @@ namespace HomeTask.Steps
         public void WhenNavigateToAndClickOnSetBlockElementWithText(string blockType, string textLinkForClick)
         {
             WhenNavigateAndClickOnSetByBlockTypeElementWithText(blockType, textLinkForClick, true);
+        }
+
+        [When(@"Navigate to and click in Omada Customers number number (.*) on the (.*)")]
+        public void WhenNavigateToAndClickOnSetBlockNumberElementWithText(string blockNumber, string textLinkForClick)
+        {
+            string pathToLink = "//div[@class='cases__item']";
+            int blockNumberInt = Int32.Parse(blockNumber);
+            
+            var link = driver.FindElements(By.XPath($"{pathToLink}[{blockNumberInt}]//a[text()='{textLinkForClick}']"));
+            Assert.That(link.Count, Is.EqualTo(1), $"{pathToLink}[{blockNumberInt}]//a[text()='{textLinkForClick}'] is more than just one link - " + link.Count);
+            Actions action = new Actions(driver);
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3)); //ToDo refactor waits
+                wait.Until(driver => link[0].Displayed);
+                action.MoveToElement(link[0]).Perform();
+            link[0].Click();
         }
 
         [When(@"I enter (.*) page")]
@@ -166,7 +209,7 @@ namespace HomeTask.Steps
         [When(@"Navigate to the element (.*)")]
         public void WhenMoveToTheElement(string elementName)
         {
-            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName); ;
+            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName);
             var element = driver.FindElement(By.XPath($"{pathToElement}"));
             Actions action = new Actions(driver);
 
@@ -174,6 +217,33 @@ namespace HomeTask.Steps
             wait.Until(driver => element.Displayed);
 
             action.MoveToElement(element).Perform();
+        }
+
+        [When(@"User switch to the (.*) tab")]
+        public void WhenUserSwitchToTheTab(string number)
+        {
+            GivenUserAtTheTab(number);
+        }
+
+        [When(@"Fill cases form field (.*) with text (.*)")]
+        public void WhenFillCasesFormFieldWithText(string field, string text)
+        {
+            var element = driver.FindElement(By.XPath($"//input[@contactfield='{field}']"));
+            element.SendKeys(text);
+        }
+
+        [When(@"Select cases form selector (.*) option (.*)")]
+        public void WhenSelectCasesFormFieldOption(string selector, string text)
+        {
+            var element = driver.FindElement(By.XPath($"//select[@contactfield='{selector}']"));
+            var selectElement = new SelectElement(element);
+            selectElement.SelectByValue(text);
+        }
+
+        [When(@"Check cases form checkbox (.*)")]
+        public void WhenSelectCheckbox(string checkbox)
+        {
+            //ToDo add checkbox implementation
         }
 
         [Given(@"Navigate to and click on the element (.*)")]
@@ -211,10 +281,10 @@ namespace HomeTask.Steps
         }
         
         [Then(@"I expect to be at page with text (.*)")]
-        public void ThenIExpectToBeAtPageWithText(string pageTitle)
+        public void ThenIExpectToBeAtPageWithText(string text)
         {
             string bodyText = driver.FindElement(By.TagName("body")).Text;
-            Assert.True(bodyText.Contains(pageTitle), "Page content in body not contains expected " + pageTitle);
+            Assert.True(bodyText.Contains(text), "Page content in body not contains expected text " + text);
         }
 
         [Then(@"I expect to be at page with h1 header (.*)")]
@@ -241,10 +311,16 @@ namespace HomeTask.Steps
         [Then(@"I expect that (.*) is displayed")]
         public void ThenIExpectThatElementIsDisplayed(string expectedElement)
         {
-            var element = driver.FindElements(By.Id("gbqfba"));
-            
+            var element = driver.FindElements(By.Id("gbqfba"));            
         }
 
+        [Then(@"I expect that element (.*) is not displayed")]
+        public void ThenIExpectThatElementCloseCookiesButtonIsNotDisplayed(string elementName)
+        {
+            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName);
+            var element = driver.FindElement(By.XPath($"{pathToElement}"));
+            Assert.False(element.Displayed, "Element " + elementName + " is not displayed");
+        }
 
 
     }

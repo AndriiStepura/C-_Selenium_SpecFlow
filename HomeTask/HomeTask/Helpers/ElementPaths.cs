@@ -21,7 +21,9 @@ namespace HomeTask.Helpers
             if (elementName == "close cookies button") { elementName = "//div[@id='brick-43']//span"; }
             if (elementName == "EN language flag for desktop") { elementName = "//a[@class='header__menulink--function-nav' and text()='EN']"; }
             if (elementName == "Contacts button at the top desktop menu") { elementName = "//div[@class='header__function-nav']//a[text()='Contact']"; }
-            if (elementName == "Privacy Policy at the bottom") { elementName = "//a[text()='Privacy Policy']"; }
+            if (elementName == "Privacy Policy at the footer") { elementName = "//a[text()='Privacy Policy']"; }
+            if (elementName == "Privacy Policy at the bottom cookiebar") { elementName = "//a[text()='Read Privacy Policy']"; }
+            if (elementName == "Cases button at the footer") { elementName = "//nav[@class='footer__navigation']//a[text()='Cases']"; }
 
             return elementName;
         }
