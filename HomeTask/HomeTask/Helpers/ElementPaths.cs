@@ -25,6 +25,13 @@ namespace HomeTask.Helpers
             if (elementName == "Privacy Policy at the bottom cookiebar") { elementName = "//a[text()='Read Privacy Policy']"; }
             if (elementName == "Cases button at the footer") { elementName = "//nav[@class='footer__navigation']//a[text()='Cases']"; }
 
+            if (elementName == "newsletter accept checkbox") { elementName = "//input[@leadfield='new_omada_buddymail']"; }
+
+            if (elementName == "unlocked Download PDF button") { elementName = "//input[@id='btnSubmit']"; }
+
+            if (elementName == "Download Customer Case link") { elementName = "//div[@class='text__text']//a"; }
+
+
             return elementName;
         }
     }

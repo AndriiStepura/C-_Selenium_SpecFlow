@@ -455,7 +455,21 @@ this.ScenarioSetup(scenarioInfo);
 #line 138
  testRunner.And("Select cases form selector address1_county option Poland", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 139
- testRunner.And("Check cases form checkbox new_omada_buddymail", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Check checkbox newsletter accept checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+ testRunner.And("Unlock slider captcha if exists for 100%", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
+ testRunner.And("Click on the element unlocked Download PDF button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 142
+ testRunner.Then("I expect to be at page with download-case part in url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 143
+ testRunner.And("I expect to be at page with h1 header Thank You for Your Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 144
+ testRunner.And("I expect to be at page with text Download Customer Case:", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 145
+ testRunner.When("Click on the element Download Customer Case link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 146
+ testRunner.And("File with name .pdf downloaded to you local machine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -136,7 +136,14 @@ Scenario Outline: 14. From the bottom of the Home page choose Cases link. On new
 	And Fill cases form field telephone1 with text +48 889 417 715
 	And Fill cases form field parentcustomerid with text W2BUSINESS Sp. z O.o
 	And Select cases form selector address1_county option Poland
-	And Check cases form checkbox new_omada_buddymail
+	And Check checkbox newsletter accept checkbox
+	And Unlock slider captcha if exists for 100%
+	And Click on the element unlocked Download PDF button
+	Then I expect to be at page with download-case part in url
+	And I expect to be at page with h1 header Thank You for Your Request
+	And I expect to be at page with text Download Customer Case:
+	When Click on the element Download Customer Case link
+	And File with name .pdf downloaded to you local machine
 
 Examples:
 | number |

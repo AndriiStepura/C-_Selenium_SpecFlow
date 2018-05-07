@@ -10,6 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace HomeTask.Steps
 {
     using System.Linq;
+    using OpenQA.Selenium.Remote;
 
     [Binding]
     public sealed class CheckContactFormSteps
@@ -197,7 +198,7 @@ namespace HomeTask.Steps
         [When(@"Click on the element (.*)")]
         public void WhenClickOnTheElement(string elementName)
         {
-            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName); ;
+            var pathToElement = Helpers.ElementPaths.GetElementPath(elementName);
             var element = driver.FindElement(By.XPath($"{pathToElement}"));
 
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
@@ -240,10 +241,38 @@ namespace HomeTask.Steps
             selectElement.SelectByValue(text);
         }
 
-        [When(@"Check cases form checkbox (.*)")]
-        public void WhenSelectCheckbox(string checkbox)
+        [When(@"Check checkbox (.*)")]
+        public void WhenSelectCheckbox(string checkboxName)
         {
-            //ToDo add checkbox implementation
+            var pathToElement = Helpers.ElementPaths.GetElementPath(checkboxName);
+            IWebElement checkbox = driver.FindElement(By.XPath(pathToElement));
+
+            if (((RemoteWebDriver)driver).Capabilities.BrowserName == "firefox")
+            {
+                checkbox.Click(); // Firefox
+            }
+            else
+            {
+                checkbox.SendKeys(Keys.Space); // Chrome and IE
+            }
+        }
+
+        [When(@"Unlock slider captcha if exists for (.*)%")]
+        public void WhenUnlockSliderCaptcha( string percentageStrg)
+
+        {
+            int percentage = Int32.Parse(percentageStrg);
+            if (driver.FindElements(By.XPath("//div[@id='Slider']")).Count > 0)
+            {
+                var sliderHandle = driver.FindElement(By.XPath("//div[@id='Slider']"));
+                var sliderTrack = driver.FindElement(By.XPath("//div[@id='bgSlider']"));
+                var width = int.Parse(sliderTrack.GetCssValue("width").Replace("px", ""));
+                var dx = (int) (percentage / 100.0 * width);
+                new Actions(driver)
+                    .DragAndDropToOffset(sliderHandle, dx, 0)
+                    .Build()
+                    .Perform();
+            }
         }
 
         [Given(@"Navigate to and click on the element (.*)")]
@@ -322,6 +351,11 @@ namespace HomeTask.Steps
             Assert.False(element.Displayed, "Element " + elementName + " is not displayed");
         }
 
+        [When(@"File with name (.*) downloaded to you local machine")]
+        public void WhenPDFFileDownloadedToYouLocalMachine(string fileName)
+        {
+            Assert.True(Helpers.FileDownloadedChecker.Main(fileName));
+        }
 
     }
 }
