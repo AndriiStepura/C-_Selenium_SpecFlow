@@ -8,13 +8,20 @@ namespace HomeTask.Helpers
 {
     public static class DriverFactory
     {
+        // Decide path to save files            
+        public static string pathToSaveFiles = EnvFoldersPaths.Main("FilesDownloadFolder");
+
         public static IWebDriver ReturnDriver(DriverType driverType)
         {
             IWebDriver driver;
             switch (driverType)
             {
                 case DriverType.Chrome:
-                    driver = new ChromeDriver();
+                    var chromeOptions = new ChromeOptions();
+                    chromeOptions.AddUserProfilePreference("download.default_directory", pathToSaveFiles);
+                    //chromeOptions.AddUserProfilePreference("intl.accept_languages", "nl");
+                    //chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+                    driver = new ChromeDriver(chromeOptions);
                     break;
                 case DriverType.Firefox:
                     driver = new FirefoxDriver();

@@ -67,6 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EnvFoldersPaths.cs" />
     <Compile Include="Helpers\FileDownloadedChecker.cs" />
     <Compile Include="Helpers\TabsManipulator.cs" />
     <Compile Include="Helpers\TakeScreenshot.cs" />

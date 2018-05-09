@@ -13,11 +13,12 @@ namespace HomeTask.Helpers
 
         public static bool Main(string filename)
         {
-
-            Task.Delay(5000).Wait(); // Wait 5 second // ToDo implement download full file download listener
+            string Path = EnvFoldersPaths.Main("FilesDownloadFolder");
+            Task.Delay(10000).Wait(); // Wait 10 second // ToDo implement download full file download listener
 
             bool exist = false;
-            string Path = System.Environment.GetEnvironmentVariable("USERPROFILE") + "\\Downloads";
+            //default user path string Path = System.Environment.GetEnvironmentVariable("USERPROFILE") + "\\Downloads";
+            
             string[] filePaths = Directory.GetFiles(Path);
             foreach (string p in filePaths)
             {
