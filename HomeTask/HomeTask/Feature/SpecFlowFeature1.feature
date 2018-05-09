@@ -144,7 +144,6 @@ Scenario Outline: 14. From the bottom of the Home page choose Cases link. On new
 	And I expect to be at page with text Download Customer Case:
 	When Click on the element Download Customer Case link
 	And File with name .pdf downloaded to you local machine
-
 Examples:
 | number |
 | 1      |

@@ -31,7 +31,6 @@ namespace HomeTask.Helpers
 
             if (elementName == "Download Customer Case link") { elementName = "//div[@class='text__text']//a"; }
 
-
             return elementName;
         }
     }
